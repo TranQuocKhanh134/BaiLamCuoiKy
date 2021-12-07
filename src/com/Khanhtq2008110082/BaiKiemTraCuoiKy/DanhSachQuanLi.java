@@ -404,6 +404,7 @@ public class DanhSachQuanLi {
                 }
             }
         });
+        xuatTatCa();
     }
     public void sapXepHangHoaTangDanTheoGia(){
         Collections.sort(list,new Comparator<HangHoa>(){
@@ -422,24 +423,26 @@ public class DanhSachQuanLi {
                 }
             }
         });
+        xuatTatCa();
     }
     public void sapXepHangHoaTangDanTheoNgay(){
         Collections.sort(list,new Comparator<HangHoa>(){
             @Override
             public int compare(HangHoa o1, HangHoa o2) {
-                if(o1.getNgayNhapKho().compareTo(o2.getNgayNhapKho()) < 0){
-                    return -1 ;
+                if(o1.getNgayNhapKho().after(o2.getNgayNhapKho())){
+                    return 1 ;
                 }
                 else {
-                    if(o1.getNgayNhapKho().compareTo(o2.getNgayNhapKho()) == 0){
+                    if(o1.getNgayNhapKho().equals(o2.getNgayNhapKho())){
                         return 0 ;
                     }
                     else {
-                        return 1 ;
+                        return -1 ;
                     }
                 }
             }
         });
+        xuatTatCa();
     }
     public void sapXepHangHoaGiamDanTheoNgay(){
         Collections.sort(list,new Comparator<HangHoa>(){
@@ -458,6 +461,7 @@ public class DanhSachQuanLi {
                 }
             }
         });
+        xuatTatCa();
     }
     public void SapXepTangDanTheoLoaiVaTheoNgayNhap(){
         ArrayList<HangHoa> list1 = new ArrayList<HangHoa>();
@@ -797,6 +801,44 @@ public class DanhSachQuanLi {
             }
         }
     }
+    public void timKiemSanPhamGiaTriCao(){
+        HangHoa y = list.get(0);
+        long max = y.getGiaNhap();
+
+        for(int i = 0 ; i < list.size() ; i++){
+            HangHoa x = list.get(i);
+            if(x.getGiaNhap() > max){
+                max = x.getGiaNhap();
+            }
+        }
+        for(int i = 0 ; i < list.size() ; i++){
+            HangHoa x = list.get(i);
+            if(x.getGiaNhap() == max){
+                System.out.println("San pham co gia tri cao nhat la : ");
+                xuatHangSanhSuTrucTiep(x);
+            }
+        }
+    } 
+    public void timKiemSanPhamTongGiaTriCaoNhat(){
+        HangHoa y = list.get(0);
+        long max = y.tinhTien();
+
+        for(int i = 0 ; i < list.size() ; i++){
+            HangHoa x = list.get(i);
+            if(x.tinhTien() > max){
+                max = x.tinhTien();
+            }
+        }
+        for(int i = 0 ; i < list.size() ; i++){
+            HangHoa x = list.get(i);
+            if(x.tinhTien() == max){
+                System.out.println("San pham co tong gia tri cao nhat la : ");
+                xuatHangSanhSuTrucTiep(x);
+            }
+        }
+    } 
+    
+
     public static Date chuyenChuoiSangNgay(String chuoiNgay) throws ParseException{
         //ngày việt nam
         Date date;

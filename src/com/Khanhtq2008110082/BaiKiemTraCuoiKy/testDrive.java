@@ -102,10 +102,12 @@ public class testDrive {
             System.out.println("|               1.3 Xoa                     |");
             System.out.println("|          2.Tim kiem theo :                |");
             System.out.println("|               2.1 Loai                    |");
-            System.out.println("|               2.2 Gia                     |");
-            System.out.println("|               2.3 Ngay nhap               |");
+            System.out.println("|               2.2 Ngay nhap               |");
+            System.out.println("|               2.3 Gia                     |");
             System.out.println("|               2.4 Gia tri cao nhat        |");
             System.out.println("|               2.5 Tong gia tri cao nhat   |");
+            System.out.println("|               2.6 Gia tri thap nhat       |");
+            System.out.println("|               2.7 Tong gia tri thap nhat  |");
             System.out.println("|          3.Sap xep tang dan theo :        |");
             System.out.println("|               3.1 Gia nhap                |");
             System.out.println("|               3.2 Ngay nhap               |");
@@ -117,9 +119,8 @@ public class testDrive {
             System.out.println("|               4.3 Loai va ngay nhap       |");
             System.out.println("|               4.4 Loai va gia nhap        |");
             System.out.println("|          5.Thong ke :                     |");
-            System.out.println("|               + Tong so luong hang hoa    |");
-            System.out.println("|               + Tong gia tri nhap kho     |");
-            System.out.println("|               + So luong tung loai hang   |");
+            System.out.println("|               5.1 Thong ke theo loai      |");
+            System.out.println("|               5.2 Thong ke tat ca hang    |");
             System.out.println("|          0.Thoat chuong trinh             |");
             System.out.println("===================MENU======================\n\n\n");
             System.out.print("Nhap lua chon cua ban : ");
@@ -135,6 +136,7 @@ public class testDrive {
                     System.out.println("=========================");
                     System.out.print("Nhap lua chon cua ban : ");
                     luaChon = input.nextInt();
+                    input.nextLine();
                     switch(luaChon){
                         case 1 : l.themHangHoa();break;
                         case 2 : l.suaHangHoa();break;
@@ -151,6 +153,8 @@ public class testDrive {
                     System.out.println("| 2.3 Tim kiem theo gia       |");
                     System.out.println("| 2.4 Gia tri cao nhat        |");
                     System.out.println("| 2.5 Tong gia tri cao nhat   |");
+                    System.out.println("| 2.6 Gia tri thap nhat       |");
+                    System.out.println("| 2.7 Tong gia tri thap nhat  |");
                     System.out.println("| 0.  Thoat                   |");
                     System.out.println("===============================");
                     System.out.print("Nhap lua chon cua ban : ");
@@ -161,6 +165,8 @@ public class testDrive {
                         case 3 : l.timKiemTheoGia();break;
                         case 4 : l.timKiemSanPhamGiaTriCao();break;
                         case 5 : l.timKiemSanPhamTongGiaTriCaoNhat();break;
+                        case 6 : l.timKiemSanPhamGiaTriThapNhat();break;
+                        case 7 : l.timKiemSanPhamTongGiaTriThapNhat();break;
                         default : break;
                     }
                     break;
@@ -207,7 +213,20 @@ public class testDrive {
                     }
                     break;
                 }
-                case 5 : l.thongKeTongHangHoa();break;
+                case 5 : {
+                System.out.println("==========MENU=============");
+                System.out.println("| 5.1 Thong ke theo loai  |");
+                System.out.println("| 5.2 Thong ke tat ca     |");
+                System.out.println("| 0.  Thoat               |");
+                System.out.println("===========================");
+                System.out.print("Nhap lua chon cua ban : ");
+                luaChon = input.nextInt();
+                switch(luaChon){
+                    case 1 : l.thongKeTheoLoaiHangHoa();break;
+                    case 2 : l.thongKeTongHangHoa();break;
+                    default : break;
+                } 
+                };break;
                 default : break;
                 
             }
